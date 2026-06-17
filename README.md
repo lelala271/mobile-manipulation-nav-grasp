@@ -6,10 +6,12 @@
 
 ## 工程源码入口
 
-这个仓库不是只有文章，已经包含一套可扩展的 ROS 2 移动抓取工程骨架。
+这个仓库包含两类工程内容：一类是从 Ubuntu ROS 2 工作环境中抽取出来的原始工程源码，另一类是面向深度相机三维定位、机械臂逆运动学抓取、任务状态机联调的补充示例工程。
 
 | 目录 | 内容 |
 | --- | --- |
+| `original_ubuntu22_workspace/ros2_ws/src` | 原始 ROS 2 工作空间源码，包含底盘启动、雷达、SLAM、Nav2、URDF、RViz、相机、键盘/手柄、跟随等工程包 |
+| `original_ubuntu22_workspace/camera_deps` | 原始环境中保留的相机底层依赖源码 |
 | `src/perception_3d` | RGB-D 目标检测模拟节点、深度反投影节点 |
 | `src/grasp_planner` | 目标三维点到预抓取/抓取位姿的规划节点 |
 | `src/task_manager` | 移动抓取任务状态机节点 |
@@ -17,6 +19,10 @@
 | `config` | 顶层参数模板 |
 | `scripts` | 依赖安装、话题检查、发布辅助脚本 |
 | `docs` | CSDN 发布稿、架构、部署、排错文档 |
+
+原始工程源码目录保留上游 ROS 包名和目录名，不做破坏性重命名；否则 `package.xml`、launch、URDF、参数文件、插件名、frame 名和 topic remap 会断链。公开说明文档只保留通用技术表述。
+
+本仓库未上传虚拟机磁盘、系统缓存、SSH/GPG 凭据、ROS 日志、`build/`、`install/`、`log/` 等主机状态文件；这些不是源码，重新部署时应由 `rosdep` 和 `colcon build` 生成。
 
 ## 快速编译
 
@@ -33,6 +39,19 @@ mkdir -p ~/mobile_manipulation_ws/src
 cd ~/mobile_manipulation_ws/src
 git clone https://github.com/lelala271/mobile-manipulation-nav-grasp.git
 cd ~/mobile_manipulation_ws
+rosdep install --from-paths src --ignore-src -r -y
+colcon build --symlink-install
+source install/setup.bash
+```
+
+如果要编译原始工作空间源码：
+
+```bash
+mkdir -p ~/robot_ros2_ws/src
+cd ~/robot_ros2_ws/src
+git clone https://github.com/lelala271/mobile-manipulation-nav-grasp.git repo
+cp -a repo/original_ubuntu22_workspace/ros2_ws/src/* .
+cd ~/robot_ros2_ws
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
 source install/setup.bash

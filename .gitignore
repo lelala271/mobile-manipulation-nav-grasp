@@ -2,6 +2,9 @@
 build/
 install/
 log/
+**/build/
+**/install/
+**/log/
 
 # Python
 __pycache__/
@@ -22,6 +25,24 @@ Thumbs.db
 *.db3
 *.mcap
 *.log
+
+# Secrets and host-specific state
+.ssh/
+.gnupg/
+.cache/
+.config/
+*.pem
+*.key
+*.pub
+*.p12
+*.pfx
+*.crt
+*.kubeconfig
+*.env
+*.env.*
+known_hosts*
+id_rsa*
+id_ed25519*
 
 # Model weights should be documented before uploading
 *.pt
