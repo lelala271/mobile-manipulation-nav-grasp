@@ -1,0 +1,9 @@
+frames:
+  map: map
+  odom: odom
+  base: base_link
+  laser: laser_link
+  camera: camera_color_optical_frame
+  arm_base: arm_base_link
+  tool: tool0
+  gripper: gripper_link

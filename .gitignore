@@ -1,0 +1,30 @@
+# ROS 2 build outputs
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editor
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Large runtime outputs
+*.bag
+*.db3
+*.mcap
+*.log
+
+# Model weights should be documented before uploading
+*.pt
+*.onnx
+*.engine
+*.pth

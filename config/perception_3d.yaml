@@ -1,0 +1,13 @@
+mock_detector:
+  ros__parameters:
+    class_name: target
+    confidence: 0.95
+    bbox: [300, 210, 380, 290]
+    frame_id: camera_color_optical_frame
+
+depth_projector:
+  ros__parameters:
+    depth_scale: 0.001
+    default_depth_m: 0.60
+    camera_frame: camera_color_optical_frame
+    min_confidence: 0.50

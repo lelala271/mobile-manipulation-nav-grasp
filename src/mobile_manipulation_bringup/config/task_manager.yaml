@@ -1,0 +1,4 @@
+pick_place_state_machine:
+  ros__parameters:
+    auto_start: true
+    state_period_s: 1.0
