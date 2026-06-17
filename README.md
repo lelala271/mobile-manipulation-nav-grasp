@@ -22,7 +22,7 @@
 
 原始工程源码目录保留上游 ROS 包名和目录名，不做破坏性重命名；否则 `package.xml`、launch、URDF、参数文件、插件名、frame 名和 topic remap 会断链。公开说明文档只保留通用技术表述。
 
-本仓库未上传虚拟机磁盘、系统缓存、SSH/GPG 凭据、ROS 日志、`build/`、`install/`、`log/` 等主机状态文件；这些不是源码，重新部署时应由 `rosdep` 和 `colcon build` 生成。
+本仓库未上传系统磁盘镜像、系统缓存、SSH/GPG 凭据、ROS 日志、`build/`、`install/`、`log/` 等主机状态文件；这些不是源码，重新部署时应由 `rosdep` 和 `colcon build` 生成。
 
 ## 快速编译
 

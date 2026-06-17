@@ -20,7 +20,7 @@ original_ubuntu22_workspace/
 为了避免把主机状态和敏感信息发布到开源仓库，以下内容没有纳入该目录：
 
 ```text
-虚拟机磁盘镜像
+系统磁盘镜像
 系统缓存目录
 SSH/GPG 凭据
 用户 shell 历史
